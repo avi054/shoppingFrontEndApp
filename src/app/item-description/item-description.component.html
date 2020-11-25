@@ -1,0 +1,21 @@
+<div class="container">
+    <form (ngSubmit)="!itemForm.invalid && price.value>= 1 && addItem()" #itemForm="ngForm">
+        <fieldset class="form-group">
+            <label>Name</label>
+            <input type="text" [(ngModel)]="item.name" class="form-control" name="name" required="required" minlength="2" [disabled]="isDisabled">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Description</label>
+            <input type="text" [(ngModel)]="item.description" class="form-control" name="description" required="required" [disabled]="isDisabled">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Price</label>
+            <input type="number" [(ngModel)]="item.price" class="form-control" name="price" min="5" required="required" #price="ngModel" [disabled]="isDisabled">
+        </fieldset>
+
+       <!--  <button *ngIf="displayButton" (click)="addItem()" class="btn btn-success">Save</button> -->
+       <button type="submit" class="btn btn-success" *ngIf="displayButton">Save</button>
+    </form>
+</div>

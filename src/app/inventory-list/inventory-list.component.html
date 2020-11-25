@@ -1,0 +1,27 @@
+<div class="container custom">
+    <b>Add an Item to Inventory:</b>
+    <button (click)="addItem()" class="btn btn-success">Add Item</button>
+</div>
+
+<h1>Items in the Inventory</h1>
+
+<div   class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td (click)="getDescription(item.id)">{{item.name}}</td>
+            <td (click)="getDescription(item.id)">{{item.price}}</td>
+            <td><button (click)="deleteItem(item.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
